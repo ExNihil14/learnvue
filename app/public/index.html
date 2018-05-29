@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/main.css">
+    <title>app</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <!--<div id="app"></div>-->
+    <!-- built files will be auto injected -->
+    <header class="header">
+      <div class="container header__container">
+        <h2 class="title header__title">Alexa John</h2>
+        <div class="header__edit">
+          <i class="fas fa-pencil-alt"></i>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="container main__container">
+        <div class="data-wrapper">
+          <h4 class="title main__title">Mobile</h4>
+          <div itemprop="telephone" class="main__block main__telephone">+1-202-555-0102</div>
+          <h4 class="title main__title">Membership</h4>
+          <div class="main__block main__status">Gold</div>
+          <h4 class="title main__title">Address</h4>
+          <address itemprop="address" class="main__block main__address">
+            <span itemprop="streetAddress">921 Church St</span>,
+            <span itemprop="addressLocality">San Francisco</span>,
+            <abbr itemprop="addressRegion" title="California">CA</abbr>
+            <span itemprop="postalCode">94114</span>,
+            <abbr itemprop="addressCountry" title="UnitedStatesOfAmerica">USA</abbr>
+          </address>
+        </div>
+        <div class="total-wrapper">
+          <span>61 orders</span>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <nav class="nav">
+        <ul class="menu footer__menu">
+          <li class="menu__item">
+            <a class="menu__link" href="#">
+              <i class="far fa-user fa-lg"></i>
+            </a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#">
+              <i class="fas fa-sliders-h fa-lg"></i>
+            </a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link menu__link_delete" href="#">
+              <i class="fas fa-trash-alt fa-lg"></i>
+            </a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#">
+              <i class="far fa-clone fa-lg"></i>
+            </a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#">
+              <i class="far fa-calendar-alt fa-lg"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>

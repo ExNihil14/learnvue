@@ -1,0 +1,165 @@
+html {
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 2px);
+    margin: 0;
+    padding: 0;
+}
+
+abbr {
+    text-decoration: none;
+}
+
+.title {
+    margin: 0;
+}
+
+.container {
+    margin: 0 20px;
+    height: 100%;
+}
+
+/* Header section */
+
+.header {
+    background: url('../img/background.jpg') center no-repeat;
+    background-size: cover;
+    height: 200px;
+}
+
+.header__container {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+}
+
+.header__title {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.header__edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: red;
+    bottom: -20px;
+    right: 0;
+}
+
+/* end Header section */
+
+/* Main section */
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 0 auto;
+    background-color: whitesmoke;
+    padding-top: 25px;
+}
+
+.main__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main__block {
+    color: darkgrey;
+    margin-bottom: 25px;
+}
+
+.main__title {
+    margin-bottom: 10px;
+}
+
+.main__address {
+    margin-bottom: 10px;
+}
+
+.data-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.data-wrapper:last-child {
+    margin-bottom: 0;
+}
+
+.total-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* end Main section */
+
+/* Footer section */
+
+.footer {
+    margin-top: auto;
+}
+
+.menu {
+    list-style: none;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.footer__menu {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+}
+
+.menu__item {
+    position: relative;
+    width: 25%;
+}
+
+.menu__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: darkgrey;
+    height: 100%;
+}
+
+.menu__link:hover {
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+.menu__link_delete {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    top: -10px;
+    left: 50%;
+    margin-left: -20px;
+}
+
+.menu__link_delete:hover {
+    color: black;
+    border-bottom: 0;
+}
+
+/* end Footer section */
