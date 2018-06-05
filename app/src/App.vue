@@ -1,23 +1,40 @@
 <template>
     <main id="app">
         <div class="items-wrapper">
-            <CityWeatherCard v-for="city in cities"
-                         v-bind:key="city"
-                         :city="city" />
+            <CityWeatherCard v-for="(city, index) in cities"
+                             :key="index"
+                             :index="index"
+                             :city="city"
+                             @send-city="getCity"/>
         </div>
     </main>
 </template>
 
 <script>
-  import CityWeatherCard from './components/CityWeatherCard.vue'
+  import CityWeatherCard from './components/CityWeatherCard/CityWeatherCard.vue'
 
   export default {
     data() {
-      return {cities: ['Malaryta', 'Minsk', 'Homel']}
+      return {
+        cities: ['Malaryta', 'Minsk', 'Homel']
+      }
     },
     name: 'app',
     components: {
       CityWeatherCard
+    },
+    watch: {
+      cities: {
+        handler(newValue) {
+          console.log('Prop changed: ', newValue) //eslint-disable-line
+        },
+        deep: true
+      }
+    },
+    methods: {
+      getCity(city, index) {
+        this.cities = this.cities.map((elem, i) => i === index ? elem = city : elem );
+      }
     }
   }
 </script>
@@ -34,6 +51,7 @@
         flex-direction: column;
         height: 100%;
     }
+
     .items-wrapper {
         display: flex;
         flex-flow: row wrap;
