@@ -9,6 +9,12 @@
                     <i class="fas fa-cog fa-lg"></i>
                 </a>
             </div>
+            <div class="input-wrapper">
+                <input placeholder="Enter city name (eng):"
+                       :value="cityName"
+                       @input="(e) => cityName = e.target.value">
+                <button class="button" @click="sendCity()">Send</button>
+            </div>
             <h1 class="item__title" v-if="city">{{city}}</h1>
             <span class="item__temperature" v-if="data.main">{{data.main.temp | convertToCelsius}}&deg;C</span>
             <span class="item__day">{{moment(new Date()).format('dddd')}}</span>
@@ -16,37 +22,40 @@
     </div>
 </template>
 
-<script>
-/* eslint-disable */
-import moment from 'moment';
-
-export default {
-  data() {
-    return {data: {}}
-  },
-  props: {
-    city: String
-  },
-  methods: {
-    moment
-  },
-  mounted() {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.city},by&appid=cdc18a852acebe83e9cad67395138f50`).then(
-      r => r.json()).then(data => {
-        this.data = data;
-      }
-    )
-  },
-  filters: {
-    convertToCelsius(temp) {
-      return Math.floor(temp - 273.15);
-    }
-  }
-}
-</script>
+<script src="./CityWeatherCard.js"></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="less" scoped>
+@fontSize: 32px;
+@buttonfontSize: 18px;
+
+.font-family(@typeFace) {
+    font-family: @typeFace, sans-serif;
+}
+
+input {
+    border-radius: 3px;
+    padding: 2px;
+    margin-bottom: 5px;
+    .font-family('Montserrat');
+    font-size: 16px;
+}
+
+.button {
+    align-self: center;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: @buttonfontSize;
+    .font-family('Montserrat');
+    width: 100px;
+    height: 40px;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .main__item {
     width: 25%;
@@ -68,20 +77,20 @@ export default {
 }
 
 .item__temperature {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 32px;
+    .font-family('Montserrat');
+    font-size: @fontSize;
     font-weight: 600;
     color: #f0f0f0;
 }
 
 .item__day {
-    font-family: 'Montserrat', sans-serif;
+    .font-family('Montserrat');
     font-weight: 300;
     color: white;
 }
 
 .item__title {
-    font-family: 'Montserrat', sans-serif;
+    .font-family('Montserrat');
     font-weight: 500;
     color: white;
 }
