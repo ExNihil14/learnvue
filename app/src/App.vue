@@ -33,7 +33,7 @@
     },
     methods: {
       getCity(city, index) {
-        this.cities = this.cities.map((elem, i) => i === index ? elem = city : elem );
+        this.cities = this.cities.map((elem, i) => i === index ? city : elem );
       }
     }
   }
