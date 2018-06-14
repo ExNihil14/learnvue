@@ -1,11 +1,13 @@
 /* eslint-disable */
+import { mapMutations, mapGetters } from 'vuex';
+
 import moment from 'moment';
 
 export default {
   data() {
     return {
-      data: {},
-      cityName: ''
+      cityName: '',
+      data: {}
     }
   },
   props: {
@@ -14,30 +16,39 @@ export default {
   },
   methods: {
     moment,
-    sendCity() {
-      this.$emit('send-city', this.cityName, this.index);
+    ...mapMutations({
+      set: 'setCity'  // `this.set()` будет вызывать `this.$store.commit('setCity')`
+    }),
+    setAction() {
+      this.$store.dispatch('getWeather', { cityName: this.cityName, index: this.index });
     },
-    getWeather() {
-      fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.city},by&appid=cdc18a852acebe83e9cad67395138f50`).then(
-        r => r.json()).then(data => {
-          this.data = data;
-        }
-      )
-    }
+
   },
   mounted() {
-    this.getWeather()
-  },
-  watch: {
-    city(newVal, oldVal) {
-      if (newVal !== oldVal) {
-        this.getWeather()
-      }
-    }
+    this.$store.dispatch('getWeather', { cityName: this.city, index: this.index });
   },
   filters: {
     convertToCelsius(temp) {
       return Math.floor(temp - 273.15);
     }
+  },
+  computed: {
+    weather2() {
+      return this.$store.getters.getWeatherByIndex(this.index);
+    },
+    ...mapGetters({
+      getWeatherByIndex: 'getWeatherByIndex'
+    }),
+    weather() {
+      this.data = this.getWeatherByIndex;
+      return this.data[this.index];
+    }
+
+  },
+   watch: {
+     city(newVal) {
+       this.cityName = newVal;
+       this.data = this.getWeatherByIndex.filter((weather, i) => i === this.index);
+     }
   }
 }

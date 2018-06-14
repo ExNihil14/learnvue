@@ -4,19 +4,20 @@
             <CityWeatherCard v-for="(city, index) in cities"
                              :key="index"
                              :index="index"
-                             :city="city"
-                             @send-city="getCity"/>
+                             :city="city" >
+                <h1 slot="title" class="item__title" v-if="city">{{city}}</h1>
+            </CityWeatherCard>
         </div>
     </main>
 </template>
 
 <script>
-  import CityWeatherCard from './components/CityWeatherCard/CityWeatherCard.vue'
+  import CityWeatherCard from './components/CityWeatherCard/CityWeatherCard.vue';
 
   export default {
-    data() {
-      return {
-        cities: ['Malaryta', 'Minsk', 'Homel']
+    computed: {
+      cities() {
+        return this.$store.state.cities;
       }
     },
     name: 'app',
@@ -32,9 +33,7 @@
       }
     },
     methods: {
-      getCity(city, index) {
-        this.cities = this.cities.map((elem, i) => i === index ? city : elem );
-      }
+
     }
   }
 </script>

@@ -10,7 +10,8 @@
   "dependencies": {
     "less": "^3.0.4",
     "vue": "^2.5.16",
-    "vue-class-component": "^6.2.0"
+    "vue-class-component": "^6.2.0",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.11",

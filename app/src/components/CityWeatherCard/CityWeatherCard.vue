@@ -13,11 +13,12 @@
                 <input placeholder="Enter city name (eng):"
                        :value="cityName"
                        @input="(e) => cityName = e.target.value">
-                <button class="button" @click="sendCity()">Send</button>
+                <button class="button" @click="set({cityName, index}); setAction()">Send</button>
             </div>
-            <h1 class="item__title" v-if="city">{{city}}</h1>
-            <span class="item__temperature" v-if="data.main">{{data.main.temp | convertToCelsius}}&deg;C</span>
+            <slot name="title"></slot>
+            <span class="item__temperature" v-if="weather">{{weather.main.temp | convertToCelsius}}&deg;C</span>
             <span class="item__day">{{moment(new Date()).format('dddd')}}</span>
+            <slot></slot>
         </div>
     </div>
 </template>
